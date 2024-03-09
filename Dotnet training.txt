@@ -1,0 +1,397 @@
+CLASS OBJECT****************************************************************************************************************************************8
+static Class_Object()
+{
+    //static constructor --> will not have any access modifier
+    //only be called once  when the class obj of that class is created.
+    //always be calledd first when instance is created,even before default constructor
+    //called by the clr(common language runtime when the first instance is called.
+    Console.WriteLine("static constructor is called");
+}
+
+ public Class_Object()
+ {
+     //Default Constructor -->coz it has no  paramters
+     // this will always runs when a new instance of this class or any child class is created.
+     Console.WriteLine("Default constructor is called");
+ }
+
+  public void DemoClassObject_One()
+  {
+      //Method
+      //get the pvt variable is allowed in the same class
+      Console.WriteLine(pvtglobalvariable);
+      //setting the value is also allowed in same class
+      pvtglobalvariable = 2000;
+      a = 100000;
+      str = "zelllllloooo";
+      Name = "Hello this Democlassobject";
+      ID = 100;
+      Console.WriteLine("Method is called");
+
+  }
+
+
+        //Destructor : IMp note
+        //Clr will call the Garbage Collection and the Garbage Collector will call the destructor.
+        //We should never write/create a destructor in the class.
+        //~Class_Object()
+        //{
+        //    //Destructor
+        //}
+
+//Execution flow
+//Static consructor
+//global variables
+//deafult constructor
+
+
+
+INDEXER+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ public class Class_Indexer
+ {
+     //Indexer is a property
+     //here we made an array type property
+     private string[] nameArr = new string[10];
+
+     public string this[int i]
+     {
+         get
+         { 
+             return nameArr[i];
+         }
+         set
+         {
+             nameArr[i] = value;
+         }
+     }
+/not able to run foreach on the objIndex as it is not a collection
+//foreach(var row in objIndex) { }
+
+ACCESSMODIFIER===========================================================================================================================================
+//the default access specifier of the class is internal
+
+internal class ClassWhichIsInternal
+{
+    //public class APublicClass
+    //{
+        //this is not accessible as the outer class is internal
+
+    //}
+
+}
+
+//method without accspecifier
+//will act as a private
+//constructor bydefault private
+//internal class cannot be accessed outside in other project.
+
+
+STATIC KEYWORD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//Static Keyword
+//Anything marked as a static is basically invoked and controlled by CLR
+//Static is used when we want to reuse the content.
+//static can be used with Method / Properties / Class etc..
+// static can only be access by the class name coz the control is of CLR
+
+
+==>STATICCLASS
+//cannot create an instance of the static class
+//CLR will create and keep the instance of the static class in the application memory
+//then how will we access the members of a static class?
+//All the members of a static class should also be  static
+
+//Member function
+public static void MyFunction()
+{
+    //it is mandotary to write static for method ,variable as the class is static.
+}
+
+==>STATICMETHOD--->INSIDE->NONSTATICCLASS 
+public class NonStaticClass
+{
+    public static void AStaticMethod()
+    {
+        //we can access this by using only class name not by object/reference.
+    }
+}
+
+//cant create an instance of the static class
+//MyStaticClass myStaticClass=new MyStaticClass();
+//this is how u call function of a static class.As we can't object explicitly and the CLR will create it and keep it when the application starts for the first time.
+MyStaticClass.MyFunction();
+******************************************************************************************************************************************************************************
+
+
+08-March-2024
+==========================
+ReadOnly_Vs_Constant
+---------------------------------
+public class ReadOnly_Vs_Constant
+{
+//we have 2 types of constant 
+1. Compile time constant=>const keyword
+
+ public const  decimal gravity=9.8M;//m is conversion in money in dotnet 
+ public const decimal pi=(decimal)3.14;
+public const string str="we will not study";
+*the values which are constant (eg:pi:3.14) will be prefixxed with const keyword ,we can get this value but we cant set this value
+*if we will try to set the value it will give error 
+//public const int intValue;=>whenever we are creating constant it is mandotary to asssign value to it oitherwise it will give error 
+
+2. Runtime constant ==>ReadOnly Keyword
+=>Runtime constant if we want to create a property which people can only read 
+eg:public readonly decimal salary;
+   public readonly int Time=30;
+   public readonly string s1="hello";
+   *in readonly assigning value is not compulsory 
+
+   public void TryNotToUpdateReadOnly()
+    {
+Time=5;//we cant reinitialize value to readonly
+ we can only change value in constructor of class
+salary=678876;//error
+s1="hi";//error
+
+
+
+
+     } 
+
+public ReadOnly_Vs_Constant()
+
+    {
+
+//we can set/update values of readonly 
+Time=5;
+salary=87654567;
+s1="hi";
+
+   }
+summary:we can set and update the values in case of readonly
+
+constant works like static:we can only make value-type as constant and not refernce type 
+eg:public const raedonly obj=new eadonly();//obj is reference type so we can't make it constant
+constant initialize before constructor 
+}
+
+===========================================================
+Init setter=>it is used in place of setter
+
+Init:In init if we once assign value we cant change it 
+
+to change it we have to create new object of the class 
+
+
+
+public class init
+{
+//property with init setter cant be assignes any value afetr initialization 
+
+public int myProperty{get;init;}//<==property with init initializer
+
+
+//to learn about init initializer please see Misc.cs file 
+
+
+}
+init in=new init(){myPropety=1};
+in.myProperty=2//this will give error 
+
+now creating new object 
+init in2=new init(){myProperty=2};
+//in2.myProperty=3//this will give error 
+
+
+
+=======================================================
+
+OOPS CONCEPTS
+=======================================================
+*******************POLYMORPHISM***********************
+===============================================================
+Constructor Overloading
+Class having more than one method with same name but different in formal arguments either differ in length or differ in datatype is known as method overloading
+
+public class MEthodOverloading//It is called as compile time polymorphism 
+ 
+   {
+//constructor overloading
+
+public MEthodOverloading()
+
+{
+    }
+
+public MEthodOverloading(int a)
+
+{
+    }
+
+//operator overloading
+
+//in below example the + operator is being overloaded 
+public void operatoroverlaoding()
+{
+int a=10;
+int b=20;
+int c=a+b;//here + is responsible for addition
+//op:30 
+
+string s1="10";
+string s2="20";
+string s13=s1+s2;//here + operator is responsibel for concatenation 
+op:1020
+
+}
+============================================
+METHOD OVERLOADING
+============================================  
+public void MyMethod()
+
+  {
+
+
+
+   }
+
+public void MyMethod(int a)
+
+
+   {
+
+
+
+   }
+public void MyMethod(string a)
+
+
+   {
+//in this method and below method if we will call by passing only string then this method
+//will be called as 1st preference is given to this method 
+//whether we keep this method above public void MyMethod(string a)
+//method  or below public void MyMethod(string a) method when e create object and pass only one parameter
+
+
+   }
+public void MyMethod(string a,int b=0)//here one parameter is optional 
+
+
+   {
+
+
+
+
+   }
+public int MyMethod()//this method will give error no matter return type is different bcz method name is same
+ {
+
+
+  }
+
+//Method-Overriding
+
+=>Pre-requisite:Inheritance
+
+
+
+   } 
+//=================================
+//INHERITANCE
+//==================================
+//Single level Inheritance
+
+//=>if we will create parent object parent method and property and const is called
+
+after creating instance of child class ,execution willl go to child class
+and return back to parent class constructr after that child class execution will start 
+
+//=>property of parent class will be inherited to child 
+
+//=>if we will set value for any variable in child class then that value will override the value
+of parent class 
+suppose we have defined id in parent class then by default it will be zero
+after initialization it will be eg:1300
+now in child class we will set global variable value of id as 1380
+now we will create child class instance so 1st value of id will 
+be 0 after that id will become 1380 as we child class has its own
+id value 
+
+
+
+
+
+
+
+
+====================================
+Multi-Level Inheritance
+**************************************
+public class GrandFather
+{
+public int HouseNumber{get;set;}
+public string HouseAddress{get;set;}
+public GrandFather()
+{
+Console.WriteLine("G-F CONST IS CALLED ");
+this.HouseNumber=123;
+this.HouseAddress="Rabale";
+}
+
+public string BragAboutProperty()
+{
+return "see i am so rich +this.HouseNumber+this.HouseAddress";
+
+}
+
+public class Parent:GrandFather
+{
+public int HouseNumber{get;set;}
+public string HouseAddress{get;set;}
+public Parent()
+{
+Console.WriteLine("parent  CONST IS CALLED ");
+this.HouseNumber=546;
+this.HouseAddress="Parel";
+
+}
+
+public string BragAboutProperty()
+{
+return "see i am so rich +this.HouseNumber+this.HouseAddress";
+
+}
+
+public class Child:Parent
+{
+public int HouseNumber{get;set;}
+public string HouseAddress{get;set;}
+public Parent()
+{
+Console.WriteLine("parent  CONST IS CALLED ");
+this.HouseNumber=789;
+this.HouseAddress="BKC";
+
+}
+
+public string BragAboutProperty()
+{
+return "see i am so rich +this.HouseNumber+this.HouseAddress";
+
+}
+==========================================================================
+Abstract Class
+============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+

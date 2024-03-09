@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6FBDE75E-B502-4513-90FC-D83DE3627B68}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommanLibrary</RootNamespace>
+    <AssemblyName>CommanLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="0 CSharp Basics\AccessModifier.cs" />
+    <Compile Include="0 CSharp Basics\Class_Object.cs" />
+    <Compile Include="0 CSharp Basics\Indexers.cs" />
+    <Compile Include="0 CSharp Basics\Loops\Boxing_Unboxing.cs" />
+    <Compile Include="0 CSharp Basics\Operators.cs" />
+    <Compile Include="0 CSharp Basics\Optionalparameter.cs" />
+    <Compile Include="0 CSharp Basics\Out_Ref_Keyword.cs" />
+    <Compile Include="0 CSharp Basics\Out_Ref_Keyword2.cs" />
+    <Compile Include="0 CSharp Basics\ReadOnly_Constant.cs" />
+    <Compile Include="0 CSharp Basics\StaticKeyword.cs" />
+    <Compile Include="01 OOPS\Abstraction\AbstractClass.cs" />
+    <Compile Include="01 OOPS\AccessModifier2.cs" />
+    <Compile Include="01 OOPS\Class1Objects.cs" />
+    <Compile Include="01 OOPS\Inheritance\Paren_ChildRelationship_Inheritance.cs" />
+    <Compile Include="01 OOPS\InstaneCreation.cs" />
+    <Compile Include="01 OOPS\PartialKeyword.cs" />
+    <Compile Include="01 OOPS\PartialKeyword2cs.cs" />
+    <Compile Include="01 OOPS\Polymorpshism\MethodOverriding.cs" />
+    <Compile Include="01 OOPS\Polymorpshism\VirtualOverride.cs" />
+    <Compile Include="01 OOPS\StaticKeyword.cs" />
+    <Compile Include="05 Collections\Different_Types_Of_Collectionscs.cs" />
+    <Compile Include="05 Collections\Generic_Collections.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Practice\Compound_Interest.cs" />
+    <Compile Include="Practice\constantexample.cs" />
+    <Compile Include="Practice\Init.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="0 CSharp Basics\Conditions\" />
+    <Folder Include="01 OOPS\Class n Object\" />
+    <Folder Include="01 OOPS\Encapsulation\" />
+    <Folder Include="02 Exception Handling\" />
+    <Folder Include="03 Events n Delegates n Lambda Expression\" />
+    <Folder Include="04 Threads n Multi-Threading\" />
+    <Folder Include="06 File Oprations\" />
+    <Folder Include="07 Serialization n Deserialization\" />
+    <Folder Include="08 ADO.NET\" />
+    <Folder Include="09 Entity Framework\" />
+    <Folder Include="10 LINQ\" />
+    <Folder Include="Design Patterns\" />
+    <Folder Include="Programming Principle\DRY\" />
+    <Folder Include="Programming Principle\SOLID\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
