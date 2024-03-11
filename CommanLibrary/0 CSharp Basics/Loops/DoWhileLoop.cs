@@ -1,0 +1,13 @@
+﻿using System;using System.Collections.Generic;using System.Linq;using System.Text;using System.Threading.Tasks;namespace ClassLibrary._00_CSharp_Basics.Loops{    public class DoWhileLoop    {
+        //The do-while loop is a post-tested loop or exit-controlled loop i.e. first it will execute the loop body
+        //and then it will be going to test the condition
+
+        //When you want to execute the loop body at least once irrespective of the condition,
+        //then you need to use the do-while loop else you need to use the while loop.
+
+        public void Calculate()        {            int n1, n2, result;            char choice;            do            {                Console.Write("Enter the number1: ");
+                n1 = Convert.ToInt32(Console.ReadLine());                Console.Write("Enter the number2: ");
+                n2 = Convert.ToInt32(Console.ReadLine());                Console.Write("Select your choice: ");                Console.WriteLine("1.Addition");                Console.WriteLine("2.Substraction");                Console.WriteLine("3.Multiplication");                Console.WriteLine("4.Division");                Console.WriteLine("Enter your choice: ");
+                result = Convert.ToInt32(Console.ReadLine());                switch (result)                {                    case 1:                        result = n1 + n2;                        Console.WriteLine($"The addition of {n1} and {n2} is {result}");                        break;                    case 2:                        result = n1 - n2;                        Console.WriteLine($"The substraction of {n1} and {n2} is {result}");                        break;                    case 3:                        result = n1 * n2;                        Console.WriteLine($"The multiplication of {n1} and {n2} is {result}");                        break;                    case 4:                        result = n1 / n2;                        Console.WriteLine($"The division of {n1} and {n2} is {result}");                        break;                    default:                        Console.WriteLine("Your choice is not present");                        break;                }                Console.WriteLine("Please enter Y to continue, any keys to terminate");
+                choice = Convert.ToChar(Console.ReadLine());            }            while (Char.ToUpper(choice) == 'Y');
+        }    }}
